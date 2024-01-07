@@ -36,7 +36,13 @@ function updateDOM(providedData = data) {
   providedData.forEach((item) => {
     const list = document.createElement("div");
     list.classList.add("person");
-    list.innerHTML = `<strong>${item.name}</strong> ${item.money}`;
+    list.innerHTML = `<strong>${item.name}</strong> ${formatMoney(item.money)}`;
     main.appendChild(list);
   });
 }
+
+function formatMoney(number) {
+  return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+}
+
+addUserBtn.addEventListener("click", getRandomUser);
