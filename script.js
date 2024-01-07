@@ -47,7 +47,7 @@ function formatMoney(number) {
 
 function doubleMoney() {
   data = data.map((user) => {
-    return { ...data, money: user.money * 2 };
+    return { ...user, money: user.money * 2 };
   });
 
   updateDOM();
