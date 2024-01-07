@@ -26,4 +26,17 @@ async function getRandomUser() {
 
 function addData(obj) {
   data.push(obj);
+
+  updateDOM();
+}
+
+function updateDOM(providedData = data) {
+  main.innerHTML = " <h2><strong>Person</strong> Wealth</h2> ";
+
+  providedData.forEach((item) => {
+    const list = document.createElement("div");
+    list.classList.add("person");
+    list.innerHTML = `<strong>${item.name}</strong> ${item.money}`;
+    main.appendChild(list);
+  });
 }
